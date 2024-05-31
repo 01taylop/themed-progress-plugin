@@ -1,0 +1,24 @@
+{
+  "name": "themed-progress-plugin",
+  "description": "A webpack plugin featuring an emoji-themed loading bar for a fun and aesthetic build process.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/01taylop/themed-progress-plugin"
+  },
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+  },
+  "author": "Patrick Taylor <hello@patricktaylor.dev>",
+  "keywords": [
+    "progress",
+    "progress-plugin",
+    "themed-progress-plugin",
+    "webpack",
+    "webpack-plugin"
+  ]
+}
