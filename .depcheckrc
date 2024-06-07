@@ -1,3 +1,4 @@
 ignores: [
+  "rimraf"
 ]
 skip-missing: true

@@ -1,24 +1,52 @@
 {
   "name": "themed-progress-plugin",
-  "description": "A webpack plugin featuring an emoji-themed loading bar for a fun and aesthetic build process.",
+  "description": "A Webpack plugin featuring an emoji-themed loading bar for a fun and aesthetic build process.",
   "repository": {
     "type": "git",
     "url": "https://github.com/01taylop/themed-progress-plugin"
   },
-  "version": "0.0.1",
+  "version": "1.0.0",
   "type": "module",
+  "main": "./lib/index.js",
+  "exports": {
+    ".": {
+      "import": "./lib/index.js",
+      "require": "./lib/index.cjs"
+    }
+  },
+  "files": [
+    "lib"
+  ],
   "scripts": {
+    "build:cjs": "babel src -d lib --env-name cjs --out-file-extension .cjs",
+    "build:esm": "babel src -d lib --env-name esm --out-file-extension .js",
+    "build": "rimraf lib && yarn run build:cjs && yarn run build:esm",
+    "prepublishOnly": "yarn test --coverage && yarn build && yarn test:bundles",
+    "test": "jest",
+    "test:bundles": "jest --config ./jest/cjs.config.js && jest --config ./jest/esm.config.js"
+  },
+  "peerDependencies": {
+    "webpack": "^5.0.0"
   },
   "dependencies": {
+    "chalk": "4.1.2"
   },
   "devDependencies": {
+    "@babel/cli": "7.24.6",
+    "@babel/core": "7.24.6",
+    "@babel/preset-env": "7.24.6",
+    "babel-plugin-add-import-extension": "1.6.0",
+    "jest": "29.7.0",
+    "rimraf": "5.0.7",
+    "webpack": "5.91.0"
   },
   "author": "Patrick Taylor <hello@patricktaylor.dev>",
   "keywords": [
+    "emoji",
+    "loading",
+    "plugin",
     "progress",
-    "progress-plugin",
-    "themed-progress-plugin",
-    "webpack",
-    "webpack-plugin"
+    "themed",
+    "webpack"
   ]
 }
