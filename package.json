@@ -5,7 +5,7 @@
     "type": "git",
     "url": "https://github.com/01taylop/themed-progress-plugin"
   },
-  "version": "0.0.1-beta.3",
+  "version": "1.0.0",
   "type": "module",
   "main": "./lib/index.js",
   "exports": {
