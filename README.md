@@ -20,11 +20,11 @@ This brings an element of surprise and novelty to the typically routine compilat
 
 Normal:
 
-![Progress Bar Normal](https://github.com/01taylop/themed-webpack-plugin/blob/main/assets/progress-normal.png?raw=true)
+![Progress Bar Normal](https://github.com/01taylop/themed-progress-plugin/blob/main/assets/progress-normal.jpg?raw=true)
 
 During Halloween:
 
-![Progress Bar Themed](https://github.com/01taylop/themed-webpack-plugin/blob/main/assets/progress-theme.png?raw=true)
+![Progress Bar Themed](https://github.com/01taylop/themed-progress-plugin/blob/main/assets/progress-theme.jpg?raw=true)
 
 ## Usage
 
