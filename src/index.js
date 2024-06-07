@@ -3,7 +3,7 @@ import { ProgressPlugin } from 'webpack'
 
 import { getProgressConfig } from './config'
 
-export default class ThemedProgressPlugin {
+class ThemedProgressPlugin {
   constructor() {
     this.progressConfig = getProgressConfig()
     this.progressPlugin = new ProgressPlugin(this.handler.bind(this))
@@ -31,4 +31,8 @@ export default class ThemedProgressPlugin {
   apply(compiler) {
     return this.progressPlugin.apply(compiler)
   }
+}
+
+export {
+  ThemedProgressPlugin,
 }

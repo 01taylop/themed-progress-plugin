@@ -49,7 +49,7 @@ You can import `ThemedProgressPlugin` using either CommonJS or ES Modules. Here'
 For CommonJS:
 
 ```js
-const ThemedProgressPlugin = require('themed-progress-plugin')
+const { ThemedProgressPlugin } = require('themed-progress-plugin')
 
 module.exports = {
   // other webpack configuration...
@@ -63,7 +63,7 @@ module.exports = {
 For ES Modules:
 
 ```js
-import ThemedProgressPlugin from 'themed-progress-plugin'
+import { ThemedProgressPlugin } from 'themed-progress-plugin'
 
 export default {
   // other webpack configuration...

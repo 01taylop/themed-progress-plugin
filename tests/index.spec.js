@@ -1,7 +1,7 @@
 import readline from 'readline'
 import { ProgressPlugin } from 'webpack'
 
-import ThemedProgressPlugin from '../src/index'
+import { ThemedProgressPlugin } from '../src/index'
 import { getProgressConfig } from '../src/config'
 
 jest.mock('readline', () => ({
