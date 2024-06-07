@@ -41,14 +41,13 @@ describe('ThemedProgressPlugin', () => {
   })
 
   it('calls this.progress with correct arguments when handler is invoked', async () => {
-    const pluginInit = new ThemedProgressPlugin()
-    pluginInit.progress = jest.fn()
+    plugin.progress = jest.fn()
 
     const mockPercentage = 0.5
     const mockMessage = 'Compiling...'
-    await pluginInit.handler(mockPercentage, mockMessage)
+    await plugin.handler(mockPercentage, mockMessage)
 
-    expect(pluginInit.progress).toHaveBeenCalledWith(mockPercentage, mockMessage)
+    expect(plugin.progress).toHaveBeenCalledWith(mockPercentage, mockMessage)
   })
 
   test.each([
@@ -60,7 +59,7 @@ describe('ThemedProgressPlugin', () => {
     [0.90, `${'\u2588'.repeat(36)}${' '.repeat(4)} | 90% Compiling...`],
     [0.98, `${'\u2588'.repeat(39)}${' '.repeat(1)} | 98% Compiling...`],
     [1.00, `${'\u2588'.repeat(40)} | 100% Compiling...`],
-  ])('updates the progress bar correctly at %s%', (percentage, expectedLog) => {
+  ])('updates the progress bar correctly at %s percent', (percentage, expectedLog) => {
     plugin.progress(percentage, 'Compiling...')
 
     expect(readline.clearLine).toHaveBeenCalledWith(process.stdout, 0)
@@ -77,7 +76,7 @@ describe('ThemedProgressPlugin', () => {
     [0.52, `${'🎃'.repeat(10)}${'🦇'.repeat(10)} | 52% Compiling...`],
     [0.80, `${'🎃'.repeat(16)}${'🦇'.repeat(4)} | 80% Compiling...`],
     [1.00, `${'🎃'.repeat(20)}${'🦇'.repeat(0)} | 100% Compiling...`],
-  ])('updates the progress bar correctly at %s% with emoji', (percentage, expectedLog) => {
+  ])('updates the progress bar correctly at %s percent with emoji', (percentage, expectedLog) => {
     getProgressConfig.mockImplementation(() => (['🎃', '🦇', 20]))
 
     const pluginWithTheme = new ThemedProgressPlugin()
