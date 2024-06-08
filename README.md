@@ -1,6 +1,7 @@
 # 💚 Themed Progress Plugin
 
 [![CodeQL Analysis](https://github.com/01taylop/themed-progress-plugin/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/01taylop/themed-progress-plugin/actions/workflows/codeql-analysis.yml)
+[![Test](https://github.com/01taylop/themed-progress-plugin/actions/workflows/test.yml/badge.svg)](https://github.com/01taylop/themed-progress-plugin/actions/workflows/test.yml)
 
 A webpack plugin featuring an emoji-themed loading bar for a fun and aesthetic build process.
 
@@ -30,14 +31,14 @@ During Halloween:
 
 ### Installation
 
-First, install the package as a dependency:
+First, install the package as a dev dependency:
 
 ```bash
 # Using yarn
-yarn add themed-progress-plugin
+yarn add -D themed-progress-plugin
 
 # Using npm
-npm install themed-progress-plugin
+npm install -D themed-progress-plugin
 ```
 
 ### Configuration
