@@ -3,9 +3,10 @@ import chalk from 'chalk'
 const dateConfigurations = {
   '01-01': ['🎉', '⬜️'], // New Year's Day
   '02-14': ['🌹', '🥀'], // Valentine's Day
+  '03-04-2025': ['🥞', '🍽️'], // Pancake Day 2025
   '03-17': ['🍀', '⬜️'], // St Patrick's Day
   '04-01': ['🃏', '⬜️'], // April Fool's Day
-  '04-10-2025_04-20-2025': ['🐣', '🥚'], // Easter 2024
+  '04-10-2025_04-20-2025': ['🐣', '🥚'], // Easter 2025
   '04-22': ['🌎', '⬜️'], // Earth Day
   '06-05': ['🌳', '⬜️'], // World Environment Day
   '06-08': ['🌊', '⬜️'], // World Oceans Day
