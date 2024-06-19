@@ -3,7 +3,7 @@
 [![CodeQL Analysis](https://github.com/01taylop/themed-progress-plugin/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/01taylop/themed-progress-plugin/actions/workflows/codeql-analysis.yml)
 [![Test](https://github.com/01taylop/themed-progress-plugin/actions/workflows/test.yml/badge.svg)](https://github.com/01taylop/themed-progress-plugin/actions/workflows/test.yml)
 
-A webpack plugin featuring an emoji-themed loading bar for a fun and aesthetic build process.
+A Webpack plugin featuring an emoji-themed loading bar for a fun and aesthetic build process.
 
 - [Motivation](#motivation)
 - [Example](#example)
@@ -43,7 +43,7 @@ npm install -D themed-progress-plugin
 
 ### Configuration
 
-Configuring `ThemedProgressPlugin` is straightforward. After importing it, you simply need to add it to the plugins array in your webpack configuration.
+Configuring `ThemedProgressPlugin` is straightforward. After importing it, you simply need to add it to the plugins array in your Webpack configuration.
 
 You can import `ThemedProgressPlugin` using either CommonJS or ES Modules. Here's an example of how to do this:
 
