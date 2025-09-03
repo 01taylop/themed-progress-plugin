@@ -38,5 +38,5 @@ jobs:
         yarn build
         yarn test:bundles
 
-    - name: Depcheck
-      run: npx depcheck
+    - name: Code quality check
+      run: npx knip
