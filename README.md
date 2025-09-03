@@ -15,9 +15,9 @@ A Webpack plugin featuring emoji-themed progress bars for a fun and engaging bui
 
 ## Motivation
 
-Traditional compilation processes can often be mundane and provide little visual feedback. `ThemedProgressPlugin` aims to bring a touch of light-hearted fun to everyday coding tasks by introducing a dynamic, emoji-themed loading bar which changes based on the date.
+Build processes typically display progress with plain, utilitarian indicators that get the job done but lack personality. While functional, these standard progress bars are part of the everyday routine that can feel repetitive.
 
-This brings an element of surprise and novelty to the typically routine compilation process, making it a more enjoyable part of the developer's day.
+Themed Progress Plugin adds a bit of whimsy to your development workflow with emoji-themed progress indicators that change based on the date. It's a small touch that brings some character and surprise to an otherwise routine part of development.
 
 ## Example
 
