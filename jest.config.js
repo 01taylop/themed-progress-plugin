@@ -1,7 +1,7 @@
 export default {
   clearMocks: true,
   collectCoverageFrom: [
-    'src/**/*.js',
+    'src/**/*',
   ],
   coverageDirectory: 'coverage',
   coverageThreshold: {
@@ -12,5 +12,4 @@ export default {
       statements: 100,
     },
   },
-  testMatch: ['**/*.spec.js'],
 }

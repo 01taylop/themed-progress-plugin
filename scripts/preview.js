@@ -2,7 +2,7 @@ import readline from 'readline'
 
 import { getProgressConfig } from '../src/config.js'
 
-const visualise = () => {
+const preview = () => {
   const [startChar, endChar, progressLength] = getProgressConfig(new Date('2025-01-01'))
 
   const display = count => {
@@ -24,4 +24,4 @@ const visualise = () => {
   display(0)
 }
 
-visualise()
+preview()
