@@ -26,7 +26,8 @@
     "build": "rimraf lib && yarn run build:cjs && yarn run build:esm",
     "prepublishOnly": "yarn test --coverage && yarn build && yarn test:bundles",
     "test": "jest",
-    "test:bundles": "jest --config ./jest/cjs.config.js && jest --config ./jest/esm.config.js"
+    "test:bundles": "jest --config ./jest/cjs.config.js && jest --config ./jest/esm.config.js",
+    "visualise": "node ./scripts/visualise"
   },
   "peerDependencies": {
     "webpack": "^5.0.0"
