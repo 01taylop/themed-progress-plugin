@@ -1,11 +1,11 @@
 {
   "name": "themed-progress-plugin",
   "description": "A Webpack plugin featuring an emoji-themed loading bar for a fun and aesthetic build process.",
+  "version": "1.0.1",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/01taylop/themed-progress-plugin.git"
   },
-  "version": "1.0.1",
   "type": "module",
   "engines": {
     "node": ">=18.18.0"
@@ -23,9 +23,9 @@
     "index.d.ts"
   ],
   "scripts": {
+    "build": "rimraf lib && yarn run build:cjs && yarn run build:esm",
     "build:cjs": "babel src -d lib --env-name cjs --out-file-extension .cjs",
     "build:esm": "babel src -d lib --env-name esm --out-file-extension .js",
-    "build": "rimraf lib && yarn run build:cjs && yarn run build:esm",
     "prepublishOnly": "yarn test --coverage && yarn build && yarn test:bundles",
     "test": "jest",
     "test:bundles": "jest --config ./jest/cjs.config.js && jest --config ./jest/esm.config.js",
@@ -35,7 +35,7 @@
     "webpack": "^5.0.0"
   },
   "dependencies": {
-    "chalk": "4.1.2"
+    "chalk": "^4.1.2"
   },
   "devDependencies": {
     "@babel/cli": "7.24.6",
