@@ -11,6 +11,7 @@
     "node": ">=18.18.0"
   },
   "main": "./lib/index.js",
+  "types": "./index.d.ts",
   "exports": {
     ".": {
       "import": "./lib/index.js",
@@ -18,7 +19,8 @@
     }
   },
   "files": [
-    "lib"
+    "lib",
+    "index.d.ts"
   ],
   "scripts": {
     "build:cjs": "babel src -d lib --env-name cjs --out-file-extension .cjs",
