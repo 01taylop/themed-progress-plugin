@@ -33,21 +33,19 @@ During Halloween:
 
 ### Installation
 
-First, install the package as a dev dependency:
+Install the package as a dev dependency:
 
 ```bash
-# Using yarn
-yarn add -D themed-progress-plugin
-
 # Using npm
 npm install -D themed-progress-plugin
+
+# Using yarn
+yarn add -D themed-progress-plugin
 ```
 
 ### Configuration
 
 Configuring `ThemedProgressPlugin` is straightforward. After importing it, you simply need to add it to the plugins array in your Webpack configuration.
-
-You can import `ThemedProgressPlugin` using either CommonJS or ES Modules. Here's an example of how to do this:
 
 For CommonJS:
 
