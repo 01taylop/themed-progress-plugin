@@ -46,6 +46,7 @@
     "knip": "5.63.1",
     "rimraf": "5.0.10",
     "semver": "7.7.2",
+    "typescript": "5.9.2",
     "webpack": "5.101.3"
   },
   "author": "Patrick Taylor <hello@patricktaylor.dev>",
