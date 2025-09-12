@@ -30,10 +30,10 @@ jobs:
     - name: Install dependencies
       run: yarn install --immutable
 
-    - name: Run tests
+    - name: Test
       run: yarn test --coverage
 
-    - name: Run tests for compiled bundles
+    - name: Test compiled bundles
       run: |
         yarn build
         yarn test:bundles

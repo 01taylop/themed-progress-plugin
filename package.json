@@ -29,7 +29,7 @@
     "prepublishOnly": "yarn test --coverage && yarn build && yarn test:bundles",
     "preview": "node ./scripts/preview",
     "test": "jest",
-    "test:bundles": "jest --config ./jest/cjs.config.js && jest --config ./jest/esm.config.js"
+    "test:bundles": "jest --config ./jest/cjs.config.ts && jest --config ./jest/esm.config.ts"
   },
   "peerDependencies": {
     "webpack": "^5.0.0"
@@ -41,11 +41,14 @@
     "@babel/cli": "7.28.3",
     "@babel/core": "7.28.3",
     "@babel/preset-env": "7.28.3",
+    "@types/jest": "30.0.0",
     "babel-plugin-add-import-extension": "1.6.0",
     "jest": "30.1.3",
     "knip": "5.63.1",
     "rimraf": "5.0.10",
     "semver": "7.7.2",
+    "ts-jest": "29.4.1",
+    "ts-node": "10.9.2",
     "typescript": "5.9.2",
     "webpack": "5.101.3"
   },

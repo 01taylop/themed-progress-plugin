@@ -1,4 +1,6 @@
 {
-  "ignoreBinaries": ["knip"],
-  "ignoreDependencies": []
+  "ignoreBinaries": [],
+  "ignoreDependencies": [
+    "ts-node"
+  ]
 }
