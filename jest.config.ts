@@ -14,8 +14,9 @@ const config: Config = {
       statements: 100,
     },
   },
+  testEnvironment: 'node',
   transform: {
-    '^.+\\.(js|ts)$': 'ts-jest',
+    '^.+\\.ts$': 'ts-jest',
   },
 }
 

@@ -1,20 +1,17 @@
 {
   "compilerOptions": {
-    "allowJs": true,
-    "declaration": true,
-    "declarationMap": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "module": "ESNext",
-    "moduleResolution": "node",
-    "outDir": "lib",
-    "rootDir": "./",
+    "moduleResolution": "bundler",
+    "noEmit": true,
+    "rootDir": "src",
     "skipLibCheck": true,
     "strict": true,
     "target": "ES2022"
   },
   "include": [
-    "src/**/*",
+    "src/**/*"
   ],
   "exclude": [
     "lib/**/*",
