@@ -39,9 +39,7 @@ const getProgressConfig = (currentDate = new Date()): [string, string, number] =
     return DEFAULT_THEME
   }
 
-  const selectedTheme = matchingThemes[
-    Math.floor(Math.random() * matchingThemes.length)
-  ]
+  const selectedTheme = matchingThemes[Math.floor(Math.random() * matchingThemes.length)]
 
   const [_dateString, startEmoji, endEmoji] = selectedTheme
   return [startEmoji, endEmoji, THEMED_PROGRESS_LENGTH]

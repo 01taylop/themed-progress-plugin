@@ -33,5 +33,8 @@ class ThemedProgressPlugin {
   }
 }
 
-export { ThemedProgressPlugin }
+export {
+  ThemedProgressPlugin,
+}
+
 export default ThemedProgressPlugin

@@ -64,4 +64,6 @@ const THEMES: readonly Theme[] = [
   ['06-28-2027_07-11-2027', '🎾', '⬛️'],
 ] as const
 
-export { THEMES }
+export {
+  THEMES,
+}
