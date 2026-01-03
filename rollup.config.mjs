@@ -5,8 +5,8 @@ import terser from '@rollup/plugin-terser'
 import typescript from '@rollup/plugin-typescript'
 import { defineConfig } from 'rollup'
 
-const requireJSON = createRequire(import.meta.url)
-const pkg = requireJSON('./package.json')
+const esmRequire = createRequire(import.meta.url)
+const pkg = esmRequire('./package.json')
 
 const commonOptions = {
   external: [
@@ -23,7 +23,7 @@ const commonTypeScriptOptions = {
 export default defineConfig([{
   ...commonOptions,
   output: {
-    exports: 'auto',
+    exports: 'named',
     file: 'lib/index.cjs',
     format: 'cjs',
   },
@@ -35,7 +35,7 @@ export default defineConfig([{
 }, {
   ...commonOptions,
   output: {
-    exports: 'auto',
+    exports: 'named',
     file: 'lib/index.js',
     format: 'esm',
   },
