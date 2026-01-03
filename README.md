@@ -1,6 +1,5 @@
 # 💚 Themed Progress Plugin
 
-[![CodeQL Analysis](https://github.com/01taylop/themed-progress-plugin/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/01taylop/themed-progress-plugin/actions/workflows/codeql-analysis.yml)
 [![Test](https://github.com/01taylop/themed-progress-plugin/actions/workflows/test.yml/badge.svg)](https://github.com/01taylop/themed-progress-plugin/actions/workflows/test.yml)
 
 ![Node Versions Supported](https://img.shields.io/static/v1?label=node&message=>=18.18.0&color=blue)

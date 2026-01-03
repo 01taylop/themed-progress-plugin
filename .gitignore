@@ -2,15 +2,15 @@
 lib/
 
 # dependencies
-node_modules
+node_modules/
 
 # misc
-.DS_Store
 .cache/
 .idea/
-.iml
-.log
 .vscode/
+.DS_Store
+*.iml
+*.log
 
 # tests
 coverage/
