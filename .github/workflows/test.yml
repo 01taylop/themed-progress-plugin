@@ -10,6 +10,8 @@ jobs:
   test:
     name: Test
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
 
     strategy:
       fail-fast: false
