@@ -17,7 +17,12 @@ const config: Config = {
   extensionsToTreatAsEsm: ['.ts'],
   testEnvironment: 'node',
   transform: {
-    'integration-esm\\.spec\\.ts$': ['ts-jest', { useESM: true }],
+    'tests/.*\\.ts$': ['ts-jest', {
+      tsconfig: {
+        rootDir: '.',
+      },
+      useESM: true,
+    }],
     '^.+\\.ts$': 'ts-jest',
   },
   transformIgnorePatterns: [
