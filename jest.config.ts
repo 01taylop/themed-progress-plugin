@@ -14,10 +14,16 @@ const config: Config = {
       statements: 100,
     },
   },
+  extensionsToTreatAsEsm: ['.ts'],
   testEnvironment: 'node',
   transform: {
+    'integration-esm\\.spec\\.ts$': ['ts-jest', { useESM: true }],
     '^.+\\.ts$': 'ts-jest',
   },
+  transformIgnorePatterns: [
+    '/node_modules/',
+    '/lib/',
+  ],
 }
 
 export default config

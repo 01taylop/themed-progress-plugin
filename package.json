@@ -26,7 +26,7 @@
     "prepublishOnly": "yarn test --coverage && yarn build && yarn test:integration",
     "preview": "tsx ./scripts/preview",
     "test": "jest src/",
-    "test:integration": "jest tests/"
+    "test:integration": "yarn node --experimental-vm-modules $(yarn bin jest) tests/"
   },
   "peerDependencies": {
     "webpack": "^5.0.0"

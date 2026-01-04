@@ -37,7 +37,7 @@ jobs:
     - name: Integration tests
       run: |
         yarn build
-        # yarn test:integration
+        yarn test:integration
 
     - name: Check code quality
       run: yarn knip

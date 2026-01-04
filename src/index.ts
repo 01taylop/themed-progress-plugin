@@ -1,16 +1,16 @@
 import readline from 'node:readline'
 
-import { ProgressPlugin, type Compiler } from 'webpack'
+import webpack, { type Compiler } from 'webpack'
 
 import { getProgressConfig } from './config'
 
 class ThemedProgressPlugin {
   private readonly progressConfig: [string, string, number]
-  private readonly progressPlugin: ProgressPlugin
+  private readonly progressPlugin: webpack.ProgressPlugin
 
   constructor() {
     this.progressConfig = getProgressConfig()
-    this.progressPlugin = new ProgressPlugin(this.handler.bind(this))
+    this.progressPlugin = new webpack.ProgressPlugin(this.handler.bind(this))
   }
 
   private handler(percentage: number, message: string): void {
