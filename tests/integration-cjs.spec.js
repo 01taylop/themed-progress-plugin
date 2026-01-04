@@ -1,9 +1,8 @@
-import { tmpdir } from 'node:os'
+import { createRequire } from 'node:module'
 
 import { jest } from '@jest/globals'
-import webpack from 'webpack'
 
-import { createRequire } from 'node:module'
+import compiler from './compiler'
 
 const esmRequire = createRequire(import.meta.url)
 const { ThemedProgressPlugin } = esmRequire('../lib/index.cjs')
@@ -17,7 +16,9 @@ describe('Integration tests - CJS', () => {
     expect(typeof plugin.apply).toBe('function')
   })
 
-  it('can be used as a webpack plugin and outputs progress', done => {
+  it('can be used as a webpack plugin and outputs progress', async () => {
+    expect.assertions(3)
+
     const progressOutputs = []
     const originalWrite = process.stdout.write.bind(process.stdout)
 
@@ -31,32 +32,13 @@ describe('Integration tests - CJS', () => {
     })
 
     const plugin = new ThemedProgressPlugin()
+    const stats = await compiler(plugin)
 
-    const compiler = webpack({
-      entry: './tests/entry.js',
-      mode: 'development',
-      output: {
-        path: tmpdir(),
-      },
-      plugins: [plugin],
-    })
+    expect(stats.hasErrors()).toBe(false)
+    expect(progressOutputs.length).toBeGreaterThan(0)
+    expect(progressOutputs.some(output => /\d+%/.test(output))).toBe(true)
 
-    if (!compiler) {
-      throw new Error('Webpack compiler is null')
-    }
-
-    compiler.run((err, stats) => {
-      expect(err).toBeNull()
-      expect(stats?.hasErrors()).toBe(false)
-
-      expect(progressOutputs.length).toBeGreaterThan(0)
-      expect(progressOutputs.some(output => /\d+%/.test(output))).toBe(true)
-
-      compiler.close(() => {
-        writeSpy.mockRestore()
-        done()
-      })
-    })
-  }, 10000)
+    writeSpy.mockRestore()
+  })
 
 })
