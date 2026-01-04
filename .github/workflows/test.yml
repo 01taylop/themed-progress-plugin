@@ -10,6 +10,8 @@ jobs:
   test:
     name: Test
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
 
     strategy:
       fail-fast: false
@@ -30,6 +32,9 @@ jobs:
 
     - name: Install dependencies
       run: yarn install --immutable
+
+    - name: Type check
+      run: yarn tsc --noEmit
 
     - name: Unit tests
       run: yarn test --coverage

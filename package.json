@@ -25,6 +25,7 @@
     "build": "rimraf lib && rollup -c",
     "prepublishOnly": "yarn test --coverage && yarn build && yarn test:integration",
     "preview": "tsx ./scripts/preview",
+    "release": "changeset publish",
     "test": "jest src/",
     "test:integration": "yarn node --experimental-vm-modules $(yarn bin jest) tests/"
   },
@@ -35,6 +36,7 @@
     "chalk": "^4.1.2"
   },
   "devDependencies": {
+    "@changesets/cli": "2.29.8",
     "@rollup/plugin-node-resolve": "16.0.3",
     "@rollup/plugin-terser": "0.4.4",
     "@rollup/plugin-typescript": "12.3.0",
