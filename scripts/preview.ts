@@ -1,11 +1,11 @@
-import readline from 'readline'
+import readline from 'node:readline'
 
-import { getProgressConfig } from '../src/config.js'
+import { getProgressConfig } from '../src/config'
 
-const preview = () => {
-  const [startChar, endChar, progressLength] = getProgressConfig(new Date('2025-01-01'))
+const preview = (date: string) => {
+  const [startChar, endChar, progressLength] = getProgressConfig(new Date(date))
 
-  const display = count => {
+  const display = (count: number) => {
     const complete = startChar.repeat(count)
     const incomplete = endChar.repeat(progressLength - count)
     const percent = (count / progressLength * 100).toFixed()
@@ -16,7 +16,7 @@ const preview = () => {
 
     if (count < progressLength) {
       setTimeout(() => {
-        display(count += 1)
+        display(count + 1)
       }, 100)
     }
   }
@@ -24,4 +24,4 @@ const preview = () => {
   display(0)
 }
 
-preview()
+preview(process.argv[2] || '2025-01-01')

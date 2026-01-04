@@ -1,4 +1,10 @@
 {
   "ignoreBinaries": [],
-  "ignoreDependencies": []
+  "ignoreDependencies": [
+    "@jest/globals",
+    "ts-node"
+  ],
+  "ignore": [
+    "tests/entry.js"
+  ]
 }

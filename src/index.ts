@@ -1,19 +1,19 @@
-import readline from 'readline'
-import { ProgressPlugin } from 'webpack'
+import readline from 'node:readline'
+
+import webpack, { type Compiler } from 'webpack'
 
 import { getProgressConfig } from './config'
 
 class ThemedProgressPlugin {
+  private readonly progressConfig: [string, string, number]
+  private readonly progressPlugin: webpack.ProgressPlugin
+
   constructor() {
     this.progressConfig = getProgressConfig()
-    this.progressPlugin = new ProgressPlugin(this.handler.bind(this))
+    this.progressPlugin = new webpack.ProgressPlugin(this.handler.bind(this))
   }
 
-  handler(...args) {
-    this.progress(...args)
-  }
-
-  progress(percentage, message) {
+  private handler(percentage: number, message: string): void {
     const [startChar, endChar, progressLength] = this.progressConfig
 
     const percent = (percentage * 100).toFixed()
@@ -28,8 +28,8 @@ class ThemedProgressPlugin {
     process.stdout.write(`${complete}${incomplete} | ${percent}% ${message}`)
   }
 
-  apply(compiler) {
-    return this.progressPlugin.apply(compiler)
+  apply(compiler: Compiler): void {
+    this.progressPlugin.apply(compiler)
   }
 }
 
