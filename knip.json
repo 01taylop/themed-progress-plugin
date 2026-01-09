@@ -4,7 +4,9 @@
     "@jest/globals",
     "ts-node"
   ],
-  "ignore": [
-    "tests/entry.js"
-  ]
+  "webpack": {
+    "entry": [
+      "tests/entry.js"
+    ]
+  }
 }
