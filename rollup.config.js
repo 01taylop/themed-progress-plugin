@@ -1,17 +1,17 @@
-import { createRequire } from 'node:module'
+import { readFileSync } from 'node:fs'
+import { resolve } from 'node:path'
 
 import nodeResolve from '@rollup/plugin-node-resolve'
 import terser from '@rollup/plugin-terser'
 import typescript from '@rollup/plugin-typescript'
 import { defineConfig } from 'rollup'
 
-const esmRequire = createRequire(import.meta.url)
-const pkg = esmRequire('./package.json')
+const { dependencies, peerDependencies } = JSON.parse(readFileSync(resolve('./package.json'), 'utf-8'))
 
 const commonOptions = {
   external: [
-    ...Object.keys(pkg.dependencies || {}),
-    ...Object.keys(pkg.peerDependencies || {}),
+    ...Object.keys(dependencies || {}),
+    ...Object.keys(peerDependencies || {}),
   ],
   input: 'src/index.ts',
 }
