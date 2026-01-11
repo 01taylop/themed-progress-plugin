@@ -1,10 +1,16 @@
 import { jest } from '@jest/globals'
 
-import { ThemedProgressPlugin } from '../lib/index.js'
+import { ThemedProgressPlugin as ThemedProgressPluginESM } from '../lib/index.js'
 
 import compiler from './compiler'
 
-describe('Integration tests - ESM', () => {
+// @ts-ignore - CJS build doesn't have type definitions
+const { ThemedProgressPlugin: ThemedProgressPluginCJS } = await import('../lib/index.cjs')
+
+describe.each([
+  ['ESM', ThemedProgressPluginESM],
+  ['CJS', ThemedProgressPluginCJS],
+])('Integration tests - %s', (_format, ThemedProgressPlugin) => {
 
   it('can instantiate ThemedProgressPlugin', () => {
     const plugin = new ThemedProgressPlugin()
