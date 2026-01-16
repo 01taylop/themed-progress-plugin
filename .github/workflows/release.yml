@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      id-token: write
       pull-requests: write
 
     steps:
@@ -36,4 +37,3 @@ jobs:
           publish: yarn release
         env:
           GITHUB_TOKEN: ${{ secrets.CHANGESETS_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
