@@ -16,33 +16,33 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        node-version: [18.x, 20.x, 22.x, 24.x]
+        node-version: [18.18, 20.x, 22.x, 24.x, 26.x]
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    - name: Set up Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node-version }}
+      - name: Set up Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
 
-    - name: Enable Corepack
-      run: corepack enable
+      - name: Enable Corepack
+        run: corepack enable
 
-    - name: Install dependencies
-      run: yarn install --immutable
+      - name: Install dependencies
+        run: yarn install --immutable
 
-    - name: Type check
-      run: yarn tsc --noEmit
+      - name: Type check
+        run: yarn tsc --noEmit
 
-    - name: Unit tests
-      run: yarn test --coverage
+      - name: Unit tests
+        run: yarn test --coverage
 
-    - name: Integration tests
-      run: |
-        yarn build
-        yarn test:integration
+      - name: Integration tests
+        run: |
+          yarn build
+          yarn test:integration
 
-    - name: Check code quality
-      run: yarn knip
+      - name: Check code quality
+        run: yarn knip

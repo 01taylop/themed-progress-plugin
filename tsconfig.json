@@ -8,7 +8,11 @@
     "rootDir": "src",
     "skipLibCheck": true,
     "strict": true,
-    "target": "ES2022"
+    "target": "ES2022",
+    "types": [
+      "jest",
+      "node"
+    ]
   },
   "include": [
     "src/**/*"
