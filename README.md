@@ -22,11 +22,11 @@ Themed Progress Plugin adds a bit of whimsy to your development workflow with em
 
 Normal:
 
-![Progress Bar Normal](https://github.com/01taylop/themed-progress-plugin/blob/main/assets/progress-normal.jpg?raw=true)
+![Progress Bar Normal](https://github.com/01taylop/themed-progress-plugin/blob/main/assets/example-normal.png?raw=true)
 
 During Halloween:
 
-![Progress Bar Themed](https://github.com/01taylop/themed-progress-plugin/blob/main/assets/progress-theme.jpg?raw=true)
+![Progress Bar Themed](https://github.com/01taylop/themed-progress-plugin/blob/main/assets/example-themed.png?raw=true)
 
 ## Usage
 
