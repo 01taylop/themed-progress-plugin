@@ -4,7 +4,6 @@ import { ThemedProgressPlugin as ThemedProgressPluginESM } from '../lib/index.js
 
 import { compiler } from './compiler'
 
-// @ts-ignore - CJS build doesn't have type definitions
 const { ThemedProgressPlugin: ThemedProgressPluginCJS } = await import('../lib/index.cjs')
 
 describe.each([

@@ -14,8 +14,14 @@
   "types": "./lib/index.d.ts",
   "exports": {
     ".": {
-      "import": "./lib/index.js",
-      "require": "./lib/index.cjs"
+      "import": {
+        "types": "./lib/index.d.ts",
+        "default": "./lib/index.js"
+      },
+      "require": {
+        "types": "./lib/index.d.cts",
+        "default": "./lib/index.cjs"
+      }
     }
   },
   "files": [
@@ -47,6 +53,7 @@
     "knip": "6.45.1",
     "rimraf": "6.1.4",
     "rollup": "4.68.3",
+    "rollup-plugin-dts": "6.5.1",
     "ts-jest": "29.4.15",
     "ts-node": "10.9.2",
     "tslib": "2.9.1",
