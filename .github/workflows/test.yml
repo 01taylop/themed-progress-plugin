@@ -30,6 +30,14 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
+      - name: Check Node types
+        run: |
+          node -e '
+            const { devDependencies, engines } = require("./package.json")
+            const [minimum, types] = [engines.node, devDependencies["@types/node"]].map(version => version.match(/\d+/)[0])
+            if (minimum !== types) throw new Error(`@types/node v${types} does not match the minimum Node version v${minimum}`)
+          '
+
       - name: Type check
         run: yarn tsc --noEmit
 
