@@ -1,9 +1,11 @@
 import { tmpdir } from 'node:os'
 
-import webpack, { type Stats, type WebpackPluginInstance } from 'webpack'
+import webpack from 'webpack'
 
-export default (plugin: WebpackPluginInstance): Promise<Stats> => {
-  const compiler = webpack({
+import type { Stats, WebpackPluginInstance } from 'webpack'
+
+const compiler = (plugin: WebpackPluginInstance): Promise<Stats> => {
+  const webpackCompiler = webpack({
     entry: './tests/entry.js',
     mode: 'development',
     output: {
@@ -12,12 +14,12 @@ export default (plugin: WebpackPluginInstance): Promise<Stats> => {
     plugins: [plugin],
   })
 
-  if (!compiler) {
+  if (!webpackCompiler) {
     throw new Error('Webpack compiler creation failed')
   }
 
   return new Promise((resolve, reject) => {
-    compiler.run((error, stats) => {
+    webpackCompiler.run((error, stats) => {
       if (error) {
         reject(error)
       }
@@ -27,4 +29,8 @@ export default (plugin: WebpackPluginInstance): Promise<Stats> => {
       resolve(stats!)
     })
   })
+}
+
+export {
+  compiler,
 }

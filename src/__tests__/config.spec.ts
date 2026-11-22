@@ -33,7 +33,7 @@ describe('getProgressConfig', () => {
 
   describe('theme matching logic', () => {
 
-    test.each([
+    it.each([
       '2000-01-06',
       '2000-01-31',
     ])('returns the default configuration when no event matches (%s)', date => {
@@ -42,7 +42,7 @@ describe('getProgressConfig', () => {
       expect(config).toEqual(['\u2588', ' ', 40])
     })
 
-    test.each([
+    it.each([
       ['2000-02-14', ['🌹', '🥀', 20]],
       ['2000-03-01', ['🌼', '🌱', 20]],
       ['2000-03-14', ['🥧', '🍽️', 20]],
@@ -68,7 +68,7 @@ describe('getProgressConfig', () => {
       expect(config).toEqual(expectedResult)
     })
 
-    test.each([
+    it.each([
       ['2000-01-01', ['🎉', '🪩', 20]],
       ['2000-01-03', ['🎉', '🪩', 20]],
       ['2000-01-05', ['🎉', '🪩', 20]],
@@ -90,7 +90,7 @@ describe('getProgressConfig', () => {
       expect(config).toEqual(expectedResult)
     })
 
-    test.each([
+    it.each([
       // ['2026-02-17', ['🐴', '🧧', 20]],
       ['2027-02-06', ['🐐', '🧧', 20]],
       ['2028-01-26', ['🐒', '🧧', 20]],
@@ -144,7 +144,7 @@ describe('getProgressConfig', () => {
       expect(noMatch).not.toEqual(expectedResult)
     })
 
-    test.each([
+    it.each([
       ['2026-02-17', [['🐴', '🧧', 20], ['🥞', '🍽️', 20]]],
       ['2029-02-13', [['🐓', '🧧', 20], ['🥞', '🍽️', 20]]],
       ['2029-04-01', [['🐣', '🥚', 20], ['🃏', '🕳️', 20]]],
