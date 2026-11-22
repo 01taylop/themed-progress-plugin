@@ -17,7 +17,11 @@ const commonOptions = {
 }
 
 const commonTypeScriptOptions = {
-  exclude: ['**/*.spec.*']
+  exclude: [
+    'tests/**',
+    '**/__tests__/**',
+    '**/*.spec.*',
+  ],
 }
 
 export default defineConfig([{
