@@ -13,6 +13,49 @@ jobs:
     permissions:
       contents: read
 
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7.0.1
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7.1.0
+        with:
+          node-version-file: .nvmrc
+
+      - name: Enable Corepack
+        run: |
+          npm install --global corepack@0.36.0
+          corepack enable
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Type check
+        run: yarn tsc --noEmit
+
+      - name: Check code quality
+        run: yarn knip
+
+      - name: Unit tests
+        run: yarn test --coverage
+
+      - name: Build
+        run: yarn build
+
+      - name: Upload build
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: lib
+          path: lib/
+          retention-days: 1
+
+  integration:
+    name: Integration (${{ matrix.node-version }})
+    needs: test
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
     strategy:
       fail-fast: false
       matrix:
@@ -28,21 +71,20 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Enable Corepack
-        run: corepack enable
+        run: |
+          if [ "$(node -p 'process.versions.node.split(".")[0]')" -ge 25 ]; then
+            npm install --global corepack@0.36.0
+          fi
+          corepack enable
 
       - name: Install dependencies
         run: yarn install --immutable
 
-      - name: Type check
-        run: yarn tsc --noEmit
-
-      - name: Unit tests
-        run: yarn test --coverage
+      - name: Download build
+        uses: actions/download-artifact@v8.0.2
+        with:
+          name: lib
+          path: lib/
 
       - name: Integration tests
-        run: |
-          yarn build
-          yarn test:integration
-
-      - name: Check code quality
-        run: yarn knip
+        run: yarn test:integration
