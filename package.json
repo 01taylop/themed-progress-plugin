@@ -29,8 +29,8 @@
   ],
   "scripts": {
     "build": "rimraf lib && rollup -c",
+    "example": "tsx ./scripts/example",
     "prepublish": "yarn test --coverage && yarn build && yarn test:integration",
-    "preview": "tsx ./scripts/preview",
     "release": "changeset publish",
     "test": "jest src/",
     "test:integration": "yarn node --experimental-vm-modules $(yarn bin jest) tests/"
