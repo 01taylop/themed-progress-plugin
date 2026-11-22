@@ -2,7 +2,7 @@
 
 [![Test](https://github.com/01taylop/themed-progress-plugin/actions/workflows/test.yml/badge.svg)](https://github.com/01taylop/themed-progress-plugin/actions/workflows/test.yml)
 
-![Node Versions Supported](https://img.shields.io/static/v1?label=node&message=>=18.18.0&color=blue)
+![Node Versions Supported](https://img.shields.io/node/v/themed-progress-plugin?color=blue)
 
 A Webpack plugin featuring emoji-themed progress bars for a fun and engaging build process. Includes seasonal and date-based themes for a personalised development experience.
 
