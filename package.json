@@ -37,6 +37,7 @@
   },
   "devDependencies": {
     "@changesets/cli": "3.0.3",
+    "@jest/globals": "30.5.2",
     "@rollup/plugin-node-resolve": "16.0.3",
     "@rollup/plugin-terser": "1.0.2",
     "@rollup/plugin-typescript": "12.3.1",

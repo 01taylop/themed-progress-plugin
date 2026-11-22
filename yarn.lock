@@ -5505,6 +5505,7 @@ __metadata:
   resolution: "themed-progress-plugin@workspace:."
   dependencies:
     "@changesets/cli": "npm:3.0.3"
+    "@jest/globals": "npm:30.5.2"
     "@rollup/plugin-node-resolve": "npm:16.0.3"
     "@rollup/plugin-terser": "npm:1.0.2"
     "@rollup/plugin-typescript": "npm:12.3.1"
