@@ -14,8 +14,14 @@
   "types": "./lib/index.d.ts",
   "exports": {
     ".": {
-      "import": "./lib/index.js",
-      "require": "./lib/index.cjs"
+      "import": {
+        "types": "./lib/index.d.ts",
+        "default": "./lib/index.js"
+      },
+      "require": {
+        "types": "./lib/index.d.cts",
+        "default": "./lib/index.cjs"
+      }
     }
   },
   "files": [
@@ -23,8 +29,8 @@
   ],
   "scripts": {
     "build": "rimraf lib && rollup -c",
-    "prepublishOnly": "yarn test --coverage && yarn build && yarn test:integration",
-    "preview": "tsx ./scripts/preview",
+    "example": "tsx ./scripts/example",
+    "prepublish": "yarn test --coverage && yarn build && yarn test:integration",
     "release": "changeset publish",
     "test": "jest src/",
     "test:integration": "yarn node --experimental-vm-modules $(yarn bin jest) tests/"
@@ -36,21 +42,25 @@
     "chalk": "^4.1.2"
   },
   "devDependencies": {
-    "@changesets/cli": "2.29.8",
+    "@arethetypeswrong/cli": "0.18.5",
+    "@changesets/cli": "3.0.3",
+    "@jest/globals": "30.5.2",
     "@rollup/plugin-node-resolve": "16.0.3",
-    "@rollup/plugin-terser": "0.4.4",
-    "@rollup/plugin-typescript": "12.3.0",
+    "@rollup/plugin-terser": "1.0.2",
+    "@rollup/plugin-typescript": "12.3.1",
     "@types/jest": "30.0.0",
-    "jest": "30.2.0",
-    "knip": "5.80.2",
-    "rimraf": "6.1.2",
-    "rollup": "4.55.1",
-    "ts-jest": "29.4.6",
+    "@types/node": "18.19.130",
+    "jest": "30.5.2",
+    "knip": "6.45.1",
+    "rimraf": "6.1.4",
+    "rollup": "4.68.3",
+    "rollup-plugin-dts": "6.5.1",
+    "ts-jest": "29.4.15",
     "ts-node": "10.9.2",
-    "tslib": "2.8.1",
-    "tsx": "4.21.0",
-    "typescript": "5.9.3",
-    "webpack": "5.104.1"
+    "tslib": "2.9.1",
+    "tsx": "4.23.15",
+    "typescript": "6.0.3",
+    "webpack": "5.112.2"
   },
   "author": "Patrick Taylor <hello@patricktaylor.dev>",
   "keywords": [
@@ -62,5 +72,5 @@
     "webpack"
   ],
   "license": "MIT",
-  "packageManager": "yarn@4.15.0+sha512.07ec708ac11e2eaa4ea2b04cfbb272812f7e74a753f1595eaef4486c663a98306a30cca3e6fc40f7a0b168dcfb3a2490b6a5e0501e20fb69cc36f563dd161c53"
+  "packageManager": "yarn@4.19.0"
 }

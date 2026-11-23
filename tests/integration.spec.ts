@@ -2,9 +2,8 @@ import { jest } from '@jest/globals'
 
 import { ThemedProgressPlugin as ThemedProgressPluginESM } from '../lib/index.js'
 
-import compiler from './compiler'
+import { compiler } from './compiler'
 
-// @ts-ignore - CJS build doesn't have type definitions
 const { ThemedProgressPlugin: ThemedProgressPluginCJS } = await import('../lib/index.cjs')
 
 describe.each([
@@ -12,20 +11,20 @@ describe.each([
   ['CJS', ThemedProgressPluginCJS],
 ])('Integration tests - %s', (_format, ThemedProgressPlugin) => {
 
-  it('can instantiate ThemedProgressPlugin', () => {
+  test('instantiating ThemedProgressPlugin', () => {
     const plugin = new ThemedProgressPlugin()
 
     expect(plugin).toBeInstanceOf(ThemedProgressPlugin)
     expect(typeof plugin.apply).toBe('function')
   })
 
-  it('can be used as a webpack plugin and outputs progress', async () => {
+  test('outputting progress as a webpack plugin', async () => {
     expect.assertions(3)
 
     const progressOutputs: string[] = []
     const originalWrite = process.stdout.write.bind(process.stdout)
 
-    const writeSpy = jest.spyOn(process.stdout, 'write').mockImplementation((chunk: any) => {
+    const writeSpy = jest.spyOn(process.stdout, 'write').mockImplementation((chunk: string | Uint8Array) => {
       const output = String(chunk)
       if (output.includes('|') && output.includes('%')) {
         progressOutputs.push(output)

@@ -6,6 +6,7 @@ node_modules/
 
 # misc
 .cache/
+.codegraph/
 .idea/
 .vscode/
 .DS_Store

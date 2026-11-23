@@ -17,23 +17,23 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7.0.1
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7.1.0
         with:
-          node-version-file: '.nvmrc'
+          node-version-file: .nvmrc
 
       - name: Enable Corepack
-        run: corepack enable
+        run: |
+          npm install --global corepack@0.36.0
+          corepack enable
 
       - name: Install dependencies
         run: yarn install --immutable
 
       - name: Create Release Pull Request or Publish
-        uses: changesets/action@v1
+        uses: changesets/action@v2.1.2
         with:
-          createGithubReleases: true
-          publish: yarn release
-        env:
-          GITHUB_TOKEN: ${{ secrets.CHANGESETS_TOKEN }}
+          github-token: ${{ secrets.CHANGESETS_TOKEN }}
+          publish-script: yarn release

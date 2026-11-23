@@ -1,8 +1,10 @@
 import readline from 'node:readline'
 
-import webpack, { type Compiler } from 'webpack'
+import webpack from 'webpack'
 
 import { getProgressConfig } from './config'
+
+import type { Compiler } from 'webpack'
 
 class ThemedProgressPlugin {
   private readonly progressConfig: [string, string, number]

@@ -1,6 +1,5 @@
 {
   "ignoreDependencies": [
-    "@jest/globals",
     "ts-node"
   ],
   "webpack": {

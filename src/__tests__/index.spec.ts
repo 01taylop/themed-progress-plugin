@@ -2,7 +2,9 @@ import readline from 'node:readline'
 
 import { ProgressPlugin } from 'webpack'
 
-import { ThemedProgressPlugin } from '../index'
+import { ThemedProgressPlugin } from '..'
+
+import type { Compiler } from 'webpack'
 
 jest.mock('node:readline', () => ({
   clearLine: jest.fn(),
@@ -33,14 +35,14 @@ describe('ThemedProgressPlugin', () => {
   })
 
   it('initialises with progress configuration', () => {
-    const plugin = new ThemedProgressPlugin()
+    new ThemedProgressPlugin()
 
     expect(ProgressPlugin).toHaveBeenCalledWith(expect.any(Function))
   })
 
   it('applies the plugin to compiler', () => {
     const plugin = new ThemedProgressPlugin()
-    const mockCompiler = {} as any
+    const mockCompiler = {} as Compiler
 
     plugin.apply(mockCompiler)
 
@@ -48,7 +50,7 @@ describe('ThemedProgressPlugin', () => {
     expect(mockProgressPluginInstance.apply).toHaveBeenCalledWith(mockCompiler)
   })
 
-  test.each([
+  it.each([
     [0.00, `${' '.repeat(40)} | 0% Compiling...`],
     [0.10, `${'\u2588'.repeat(4)}${' '.repeat(36)} | 10% Compiling...`],
     [0.45, `${'\u2588'.repeat(18)}${' '.repeat(22)} | 45% Compiling...`],
@@ -60,9 +62,9 @@ describe('ThemedProgressPlugin', () => {
   ])('updates the default progress bar at %s percent', (percentage, expectedLog) => {
     jest.setSystemTime(new Date('2000-01-06'))
 
-    const plugin = new ThemedProgressPlugin() as any
+    const plugin = new ThemedProgressPlugin()
 
-    plugin.handler(percentage, 'Compiling...')
+    plugin['handler'](percentage, 'Compiling...')
 
     expect(readline.clearLine).toHaveBeenCalledWith(process.stdout, 0)
     expect(readline.cursorTo).toHaveBeenCalledWith(process.stdout, 0)
@@ -70,7 +72,7 @@ describe('ThemedProgressPlugin', () => {
     expect(writeSpy).toHaveBeenCalledWith(expectedLog)
   })
 
-  test.each([
+  it.each([
     [0.00, `🪩🪩🪩🪩🪩🪩🪩🪩🪩🪩🪩🪩🪩🪩🪩🪩🪩🪩🪩🪩 | 0% Compiling...`],
     [0.05, `🎉🪩🪩🪩🪩🪩🪩🪩🪩🪩🪩🪩🪩🪩🪩🪩🪩🪩🪩🪩 | 5% Compiling...`],
     [0.42, `🎉🎉🎉🎉🎉🎉🎉🎉🪩🪩🪩🪩🪩🪩🪩🪩🪩🪩🪩🪩 | 42% Compiling...`],
@@ -81,9 +83,9 @@ describe('ThemedProgressPlugin', () => {
   ])('updates an emoji-themed progress bar at %s percent', (percentage, expectedLog) => {
     jest.setSystemTime(new Date('2000-01-01'))
 
-    const plugin = new ThemedProgressPlugin() as any
+    const plugin = new ThemedProgressPlugin()
 
-    plugin.handler(percentage, 'Compiling...')
+    plugin['handler'](percentage, 'Compiling...')
 
     expect(readline.clearLine).toHaveBeenCalledWith(process.stdout, 0)
     expect(readline.cursorTo).toHaveBeenCalledWith(process.stdout, 0)
